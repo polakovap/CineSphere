@@ -1,0 +1,16 @@
+﻿<Application x:Class="CinesphereProject.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:CinesphereProject"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+         <!-- resource dictionaries with styles for the app elements -->
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="themes/MenuButton.xaml"/>
+                <ResourceDictionary Source="themes/SearchButton.xaml"/>
+                <ResourceDictionary Source="themes/SearchBox.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
