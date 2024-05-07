@@ -16,14 +16,14 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="9*"/>
         </Grid.RowDefinitions>
+        <!--Add logo-->
+        <Image Source="img/logo.png"
+               Height="40"
+               Margin="5,0,0,0"
+               VerticalAlignment="Center"/>
 
-        <TextBlock Grid.Row="0" Grid.Column="0" 
-                   Text="CineSphere" 
-                   FontSize="30" 
-                   HorizontalAlignment="right" 
-                   VerticalAlignment="Center"
-                   Foreground="White"/>
-        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical">
+        <!-- Stack panel for the menu buttons -->
+        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical" Margin="0,10,0,0">
             <RadioButton x:Name="rbtnHome" Content="Home"
                                  Height="50"
                                  Foreground="White"
@@ -31,40 +31,66 @@
                                  Style="{ StaticResource MenuButton }"
                                  IsChecked="true" Click="rbtnHome_Click"/>
 
-            <RadioButton x:Name="rbtnMovies" Content="Movies"
+            <RadioButton x:Name="rbtnMovies" Content="Upcoming Movies"
                                  Height="50"
                                  Foreground="White"
                                  FontSize="14"
                                  Style="{ StaticResource MenuButton }" Click="rbtnMovies_Click"/>
 
-            <RadioButton x:Name="rbtnTVShows" Content="TV Shows"
+            <RadioButton x:Name="rbtnTVShows" Content="TV Shows Airing Today"
                                  Height="50"
                                  Foreground="White"
                                  FontSize="14"
                                  Style="{ StaticResource MenuButton }" Click="rbtnTVShows_Click"/>
-
-            <RadioButton x:Name="rbtnProviders" Content="Providers"
-                                 Height="50"
-                                 Foreground="White"
-                                 FontSize="14"
-                                 Style="{ StaticResource MenuButton }" Click="rbtnProviders_Click"/>
         </StackPanel>
 
+        <!-- stackpanel for search bar and buttons -->
         <StackPanel Orientation="Horizontal" 
                     Grid.Column="1"
-                    HorizontalAlignment="Center">
-            <TextBox Width="600"
-                     Height="40"
-                     VerticalAlignment="Center"
-                     HorizontalAlignment="Left"
-                     Margin="10,0,0,0"
-                     Style="{StaticResource TextBox}"/>
-            <Button Width="70"
+                    HorizontalAlignment="Center"
+                    Margin="0,0,0,0">
+            <Border CornerRadius="10"
+                    Background="#636363"
+                    Width="500"
                     Height="40"
-                    Margin="10,0,0,0"
-                    Style="{StaticResource Button}" Cursor="Hand"/>
+                    Margin="10,10,0,0">
+                <TextBox x:Name="tbxSearch" Width="500"
+                         Height="40"
+                         VerticalAlignment="Center"
+                         HorizontalAlignment="Center"
+                         Background="Transparent"
+                         FontSize="15"
+                         Foreground="white"
+                         Text="Search for..."
+                         Padding="10"
+                         BorderThickness="0" GotFocus="tbxSearch_GotFocus"/>
+            </Border>
+            
+            <Button x:Name="btnSearchMovie" Width="85"
+                    Height="40"
+                    Margin="10,10,0,0"
+                    Style="{StaticResource Button}" 
+                    Foreground="White"
+                    Cursor="Hand" 
+                    Content="Search Movies"
+                    Click="btnSearchMovie_Click"/>
+            <Button x:Name="btnSearchTV" Width="85"
+                    Height="40"
+                    Margin="10,10,0,0"
+                    Style="{StaticResource Button}" 
+                    Foreground="White"
+                    Cursor="Hand"
+                    Content="Search Shows" Click="btnSearchTV_Click"/>
+            <Button x:Name="btnSearchPerson" Width="85"
+                    Height="40"
+                    Margin="10,10,0,0"
+                    Style="{StaticResource Button}" 
+                    Foreground="White"
+                    Cursor="Hand"
+                    Content="Search People" Click="btnSearchPerson_Click"/>
         </StackPanel>
 
+        <!-- stackpanel that is a container for all views-->
         <StackPanel x:Name="viewContainer"
               Grid.Row="1"
               Grid.Column="1"/>

@@ -1,18 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using CinesphereProject.ObjectClasses;
 //add newtonsoft.json (installed the NuGet package)
 using Newtonsoft.Json;
@@ -34,7 +25,7 @@ namespace CinesphereProject.UserControls
         private const string TVApiUrl = "https://api.themoviedb.org/3/trending/tv/week?api_key=" + ApiKey;
 
         //create a HttpClient
-        private HttpClient _httpClient = new HttpClient();
+        private readonly HttpClient _httpClient = new HttpClient();
 
         public HomeView()
         {
@@ -54,7 +45,7 @@ namespace CinesphereProject.UserControls
                 var json = await response.Content.ReadAsStringAsync();
                 var result = JsonConvert.DeserializeObject<TrendingResponse<Movie>>(json);
                 var movies = result?.Results;
-                // Bind the movies data to your UI elements
+                // Bind the movies data to UI elements
                 lbxMovies.ItemsSource = movies;
             }
             catch (HttpRequestException ex)
@@ -92,6 +83,32 @@ namespace CinesphereProject.UserControls
             {
                 // Handle JSON parsing errors
                 Console.WriteLine(ex.Message);
+            }
+
+        }
+
+        //event handler for double-click on movie item to open a new view
+        private void lbxMovies_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (lbxMovies.SelectedItem != null)
+            {
+                Movie selectedMovie = (Movie)lbxMovies.SelectedItem;
+
+                //navigate to MovieDetailsView passing the selected movie
+                MovieDetailsView movieDetailsView = new MovieDetailsView(selectedMovie);
+                ((MainWindow)Application.Current.MainWindow).AddUserControl(movieDetailsView);
+            }
+        }
+
+        private void lbxTVShows_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (lbxTVShows.SelectedItem != null)
+            {
+                TVShow selectedTVShow = (TVShow)lbxTVShows.SelectedItem;
+
+                //navigate to TVShowDetailsView passing the selected show
+                TVShowDetailsView tvShowDetailsView = new TVShowDetailsView(selectedTVShow);
+                ((MainWindow)Application.Current.MainWindow).AddUserControl(tvShowDetailsView);
             }
 
         }

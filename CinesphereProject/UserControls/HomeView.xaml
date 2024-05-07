@@ -18,6 +18,7 @@
             <RowDefinition Height="9*"/>
         </Grid.RowDefinitions>
 
+        <!--Stack panel for what to watch poster-->
         <StackPanel Orientation="Horizontal"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Bottom"
@@ -49,6 +50,7 @@
             </Border>
         </StackPanel>
 
+        <!--Headers for listboxes-->
         <TextBlock Text="Movies" 
                    Grid.Row="1"
                    Foreground="White"
@@ -63,22 +65,17 @@
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"/>
 
-        <!--<ListBox x:Name="lbxMovies" 
+        <!--Listbox for movies-->
+        <ListBox x:Name="lbxMovies" 
                  d:ItemsSource="{d:SampleData ItemCount=5}" 
-                 DisplayMemberPath="Title"
                  Grid.Column="0"
                  Grid.Row="2"
                  Background="Transparent"
                  Foreground="White"
-                 Margin="0,0,10,10"/>-->
-
-        <ListBox x:Name="lbxMovies" 
-         d:ItemsSource="{d:SampleData ItemCount=5}" 
-         Grid.Column="0"
-         Grid.Row="2"
-         Background="Transparent"
-         Foreground="White"
-         Margin="0,0,10,10" BorderBrush="#FF1A1A1A" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                 Margin="0,0,10,10" 
+                 ScrollViewer.VerticalScrollBarVisibility="Hidden" 
+                 BorderThickness="0"
+                 MouseDoubleClick="lbxMovies_MouseDoubleClick">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <!-- Display the movie information -->
@@ -110,22 +107,17 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-
-        <!--<ListBox x:Name="lbxTVShows" 
-                 d:ItemsSource="{d:SampleData ItemCount=5}" 
-                 DisplayMemberPath="Name"
-                 Grid.Column="1"
-                 Grid.Row="2"
-                 Background="Transparent"
-                 Foreground="White"
-                 Margin="0,0,10,10"/>-->
+        <!--Listbox for tv shows-->
         <ListBox x:Name="lbxTVShows" 
                  d:ItemsSource="{d:SampleData ItemCount=5}" 
                  Grid.Column="1"
                  Grid.Row="2"
                  Background="Transparent"
                  Foreground="White"
-                 Margin="0,0,10,10" ScrollViewer.VerticalScrollBarVisibility="Hidden" BorderBrush="#FF1A1A1A">
+                 Margin="0,0,10,10" 
+                 ScrollViewer.VerticalScrollBarVisibility="Hidden" 
+                 BorderThickness="0"
+                 MouseDoubleClick="lbxTVShows_MouseDoubleClick">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <!-- Display the movie information -->

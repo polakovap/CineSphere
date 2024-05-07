@@ -65,18 +65,37 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ObjectClasses\Movie.cs" />
+    <Compile Include="ObjectClasses\MovieDetails.cs" />
+    <Compile Include="ObjectClasses\Person.cs" />
+    <Compile Include="ObjectClasses\PersonDetails.cs" />
     <Compile Include="ObjectClasses\TVShow.cs" />
+    <Compile Include="ObjectClasses\TVShowDetails.cs" />
+    <Compile Include="UserControls\AiringTVShowsView.xaml.cs">
+      <DependentUpon>AiringTVShowsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\MoviesView.xaml.cs">
-      <DependentUpon>MoviesView.xaml</DependentUpon>
+    <Compile Include="UserControls\MovieDetailsView.xaml.cs">
+      <DependentUpon>MovieDetailsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\ProvidersView.xaml.cs">
-      <DependentUpon>ProvidersView.xaml</DependentUpon>
+    <Compile Include="UserControls\PersonDetailsView.xaml.cs">
+      <DependentUpon>PersonDetailsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\TVShowsView.xaml.cs">
-      <DependentUpon>TVShowsView.xaml</DependentUpon>
+    <Compile Include="UserControls\SearchMovieView.xaml.cs">
+      <DependentUpon>SearchMovieView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SearchPersonView.xaml.cs">
+      <DependentUpon>SearchPersonView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SearchTVShowView.xaml.cs">
+      <DependentUpon>SearchTVShowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TVShowDetailsView.xaml.cs">
+      <DependentUpon>TVShowDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UpcomingMoviesView.xaml.cs">
+      <DependentUpon>UpcomingMoviesView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -94,11 +113,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="themes\SearchBox.xaml">
+    <Page Include="themes\SearchButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="themes\SearchButton.xaml">
+    <Page Include="UserControls\AiringTVShowsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -106,15 +125,31 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\MoviesView.xaml">
+    <Page Include="UserControls\MovieDetailsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\ProvidersView.xaml">
+    <Page Include="UserControls\PersonDetailsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\TVShowsView.xaml">
+    <Page Include="UserControls\SearchMovieView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\SearchPersonView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\SearchTVShowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\TVShowDetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UpcomingMoviesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -145,6 +180,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\logo1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
